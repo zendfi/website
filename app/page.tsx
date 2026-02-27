@@ -11,16 +11,21 @@ import SecuritySection from '@/components/sections/SecuritySection';
 import PricingPreview from '@/components/sections/PricingPreview';
 import CtaSection from '@/components/sections/CtaSection';
 import Footer from '@/components/Footer';
+import InteractiveMatrix from '@/components/InteractiveMatrix';
 
 export default function Home() {
   return (
-    <main className="bg-bg min-h-screen">
+    <main className="bg-bg min-h-screen relative">
       <Navbar />
       <Hero />
       <LogoMarquee />
       <ProofSection />
       <OnrampSection />
       <CheckoutSection />
+      {/* Floating Decorative Element */}
+      <div className=" bottom-12 left-12 w-[500px] h-32 hidden lg:block z-0 pointer-events-auto">
+        <InteractiveMatrix />
+      </div>
       <DevSection />
       <EarnSection />
       <FeaturesSection />

@@ -23,7 +23,7 @@ const cols = [
     title: 'Company',
     links: [
       { label: 'Blog', href: 'https://blog.zendfi.tech', external: true },
-      { label: 'Twitter', href: 'https://twitter.com/zendfi_tech', external: true },
+      { label: 'X', href: 'https://x.com/zendfi_', external: true },
     ],
   },
   {
@@ -43,15 +43,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <img src="/logo.png" alt="ZendFi" className="h-8 w-auto object-contain" />
+              <img src="/zendfi_logo_gg.png" alt="ZendFi" className="h-7 w-auto object-contain filter [filter:invert(39%)_sepia(87%)_saturate(5833%)_hue-rotate(253deg)_brightness(97%)_contrast(92%)]" />
             </Link>
             <p className="text-[13px] text-gray-400 leading-relaxed max-w-[180px]">
               Crypto payments for the borderless economy.
             </p>
-            <div className="flex items-center gap-1 mt-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[11px] text-emerald-400/70">Mainnet Live</span>
-            </div>
           </div>
 
           {/* Link columns */}
@@ -94,7 +90,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2 text-[12px] text-gray-400">
             <span>Built on</span>
-            <span className="text-[#9945FF] font-semibold">◎ Solana</span>
+            <span className="text-accent font-semibold">Solana</span>
           </div>
         </div>
       </div>

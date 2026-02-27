@@ -87,17 +87,11 @@ export default function PricingPage() {
 
       {/* Header */}
       <section className="relative pt-36 pb-24 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-violet-200/40 blur-[120px] rounded-full" />
-        </div>
         <div className="relative max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-violet-200 bg-violet-50 mb-6">
-            <span className="text-xs font-semibold text-violet-600 tracking-wide">Pricing</span>
-          </div>
           <h1 className="text-[clamp(36px,5.5vw,68px)] font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
             Simple &amp; transparent.
             <br />
-            <span className="text-violet-600">No surprises.</span>
+            <span className="text-accent">No surprises.</span>
           </h1>
           <p className="text-lg text-gray-500 leading-relaxed">
             Free sandbox forever. $10 to ship to mainnet. Pay-as-you-go after that.
@@ -113,7 +107,7 @@ export default function PricingPage() {
               key={tier.name}
               className={`rounded-3xl border p-8 flex flex-col gap-7 ${
                 tier.highlight
-                  ? 'border-violet-200 bg-violet-50/60 shadow-[0_4px_32px_rgba(124,58,237,0.08)]'
+                  ? 'border-accent/20 bg-violet-50/60 '
                   : 'border-gray-100 bg-white shadow-sm'
               }`}
             >
@@ -134,7 +128,7 @@ export default function PricingPage() {
                 </div>
                 <div
                   className="text-[clamp(40px,6vw,56px)] font-extrabold tracking-tight leading-none mb-1"
-                  style={{ color: tier.highlight ? '#7c3aed' : tier.color }}
+                  style={{ color: tier.highlight ? '#643da9ff' : tier.color }}
                 >
                   {tier.price}
                 </div>
@@ -160,7 +154,7 @@ export default function PricingPage() {
                 href={tier.ctaHref}
                 className={`w-full text-center py-3.5 rounded-xl text-sm font-bold transition-all ${
                   tier.highlight
-                    ? 'bg-primary hover:bg-primary-hover text-white shadow-[0_0_24px_rgba(124,58,237,0.35)] hover:shadow-[0_0_36px_rgba(124,58,237,0.5)]'
+                    ? 'bg-primary hover:bg-primary-hover text-white'
                     : 'border border-gray-200 hover:border-gray-300 text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >

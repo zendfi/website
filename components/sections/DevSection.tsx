@@ -180,18 +180,18 @@ export default function DevSection() {
           className="flex flex-col gap-6 lg:sticky lg:top-28"
         >
           <div className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200">
-            <span className="text-xs font-medium text-gray-500 tracking-wide">Developer SDK</span>
+            <span className="text-[10px] font-bold text-gray-600 tracking-widest uppercase">Developer SDK</span>
           </div>
 
           <h2 className="text-[clamp(32px,4vw,50px)] font-extrabold text-gray-900 leading-tight tracking-tight">
             Zero to payment
             <br />
-            <span className="text-violet-600">in 60 seconds.</span>
+            <span className="text-primary">in 60 seconds.</span>
           </h2>
 
           <p className="text-base text-gray-500 leading-relaxed">
             The{' '}
-            <code className="text-violet-600 font-mono text-sm bg-violet-50 px-1.5 py-0.5 rounded-md">@zendfi/sdk</code>
+            <code className="text-accent font-mono text-sm bg-violet-50 px-1.5 py-0.5 rounded-md">@zendfi/sdk</code>
             {' '}is a zero-config TypeScript library. Set your API key, call one function, send the URL to your customer.
           </p>
 
@@ -242,8 +242,8 @@ export default function DevSection() {
                 onClick={() => setActiveTab(i)}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   i === activeTab
-                    ? 'bg-gray-900 text-white'
-                    : 'text-gray-400 hover:text-gray-700'
+                    ? 'bg-white text-accent shadow-xs'
+                    : 'text-gray-400 hover:text-accent'
                 }`}
               >
                 {tab.label}

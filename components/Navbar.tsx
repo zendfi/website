@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const links = [
-  { label: 'Products', href: '/#features' },
+  { label: 'Products', href: '#features' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Docs', href: 'https://docs.zendfi.tech', external: true },
   { label: 'Blog', href: 'https://blog.zendfi.tech', external: true },
@@ -25,20 +25,23 @@ export default function Navbar() {
     <>
       {/* Main bar */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-[0_1px_16px_rgba(0,0,0,0.06)]'
-            : 'bg-transparent'
-        }`}
+        className={`sticky top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
+          ? 'bg-white/80 backdrop-blur-md border-b border-gray-100/80 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.02)] py-2'
+          : 'bg-transparent py-4'
+          }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <img src="/logo.png" alt="ZendFi" className="h-8 w-auto object-contain" />
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <img
+              src="/zendfi_logo_gg.png"
+              alt="ZendFi"
+              className="h-7 w-auto object-contain transition-transform group-hover:scale-[1.02] filter [filter:invert(39%)_sepia(87%)_saturate(5833%)_hue-rotate(255deg)_brightness(97%)_contrast(92%)]"
+            />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Center: Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {links.map((l) =>
               l.external ? (
                 <a
@@ -46,7 +49,7 @@ export default function Navbar() {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 text-[13px] font-medium text-gray-600 hover:text-gray-900 transition-colors rounded-lg hover:bg-gray-50"
+                  className="px-4 py-2 text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-all rounded-lg hover:bg-gray-100/50"
                 >
                   {l.label}
                 </a>
@@ -54,7 +57,7 @@ export default function Navbar() {
                 <Link
                   key={l.label}
                   href={l.href}
-                  className="px-4 py-2 text-[13px] font-medium text-gray-600 hover:text-gray-900 transition-colors rounded-lg hover:bg-gray-50"
+                  className="px-4 py-2 text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-all rounded-lg hover:bg-gray-100/50"
                 >
                   {l.label}
                 </Link>
@@ -62,26 +65,26 @@ export default function Navbar() {
             )}
           </nav>
 
-          {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Right: Desktop CTAs */}
+          <div className="hidden md:flex items-center gap-4">
             <a
               href="https://dashboard.zendfi.tech/login"
-              className="px-4 py-2 text-[13px] font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-[13px] font-bold text-gray-500 hover:text-gray-900 transition-colors"
             >
-              Sign in
+              Log in
             </a>
             <a
               href="https://dashboard.zendfi.tech/setup"
-              className="px-4 py-1.5 text-[13px] font-semibold bg-primary hover:bg-primary-hover text-white rounded-lg transition-all shadow-[0_2px_12px_rgba(124,58,237,0.25)] hover:shadow-[0_4px_20px_rgba(124,58,237,0.35)]"
+              className="px-5 py-2.5 text-[13px] font-bold bg-primary hover:brightness-110 text-white rounded-xl transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
             >
-              Get started →
+              Get started
             </a>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-gray-500 hover:text-gray-900"
+            className="md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
@@ -91,69 +94,56 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
-          open ? 'pointer-events-auto' : 'pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-[60] md:hidden transition-all duration-300 ${open ? 'visible' : 'invisible'
+          }`}
       >
         {/* Backdrop */}
         <div
           onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
-            open ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-white/80 backdrop-blur-md transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'
+            }`}
         />
 
         {/* Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 bg-white border-l border-gray-100 shadow-2xl p-8 flex flex-col gap-6 transition-transform duration-300 ${
-            open ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white border-l border-gray-100 shadow-2xl p-8 flex flex-col gap-10 transition-transform duration-500 ease-out ${open ? 'translate-x-0' : 'translate-x-full'
+            }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-gray-900 font-semibold">Menu</span>
-            <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-gray-900">
-              <X size={18} />
+            <img src="/zendfi_logo_gg.png" alt="ZendFi" className="h-6 w-auto filter [filter:invert(39%)_sepia(87%)_saturate(5833%)_hue-rotate(253deg)_brightness(97%)_contrast(92%)]" />
+            <button onClick={() => setOpen(false)} className="p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all">
+              <X size={20} />
             </button>
           </div>
 
-          <nav className="flex flex-col gap-1">
-            {links.map((l) =>
-              l.external ? (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="px-3 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
-                >
-                  {l.label}
-                </a>
-              ) : (
-                <Link
-                  key={l.label}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="px-3 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
-                >
-                  {l.label}
-                </Link>
-              )
-            )}
+          <nav className="flex flex-col gap-2">
+            {links.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between px-4 py-4 text-lg font-bold text-gray-900 hover:bg-gray-50 rounded-2xl transition-all active:scale-[0.98]"
+              >
+                {l.label}
+                <ArrowRight size={18} className="text-gray-300" />
+              </a>
+            ))}
           </nav>
 
           <div className="mt-auto flex flex-col gap-3">
             <a
               href="https://dashboard.zendfi.tech/login"
-              className="w-full text-center py-3 text-sm font-medium text-gray-600 hover:text-gray-900 border border-gray-200 rounded-xl transition-colors"
+              className="w-full text-center py-4 text-[15px] font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 rounded-2xl transition-all active:scale-[0.98]"
             >
-              Sign in
+              Log in
             </a>
             <a
               href="https://dashboard.zendfi.tech/setup"
-              className="w-full text-center py-3 text-sm font-semibold bg-primary text-white rounded-xl shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:bg-primary-hover transition-all"
+              className="w-full text-center py-4 text-[15px] font-bold bg-primary text-white rounded-2xl shadow-lg shadow-primary/20 hover:brightness-110 transition-all active:scale-[0.98]"
             >
-              Get started →
+              Create free account
             </a>
           </div>
         </div>
