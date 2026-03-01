@@ -172,7 +172,7 @@ export default function CheckoutSection() {
     }, [active]); // Re-bind interval so manual clicks reset the timer
 
     return (
-        <section className="pt-32 px-6 relative overflow-hidden bg-white">
+        <section className="pt-32 px-6 sm:px-0 relative overflow-hidden bg-white">
             <div className="max-w-7xl mx-auto relative">
                 {/* Section label */}
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">

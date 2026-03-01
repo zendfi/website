@@ -4,6 +4,7 @@ import LogoMarquee from '@/components/sections/LogoMarquee';
 import ProofSection from '@/components/sections/ProofSection';
 import OnrampSection from '@/components/sections/OnrampSection';
 import CheckoutSection from '@/components/sections/CheckoutSection';
+import ShopSection from '@/components/sections/ShopSection';
 import DevSection from '@/components/sections/DevSection';
 import EarnSection from '@/components/sections/EarnSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
@@ -27,6 +28,7 @@ export default function Home() {
         <InteractiveMatrix />
       </div>
       <DevSection />
+      <ShopSection />
       <EarnSection />
       <FeaturesSection />
       <SecuritySection />

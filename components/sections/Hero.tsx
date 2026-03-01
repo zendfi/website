@@ -104,7 +104,7 @@ function CheckoutMockup() {
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden w-full flex flex-col bg-white">
-      <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 pt-12 pb-20 gap-16 lg:gap-12 w-full">
+      <div className="relative flex-1 flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 sm:px-0 pt-12 pb-20 gap-16 lg:gap-12 w-full">
         {/* Left — text */}
         <div className="flex-1 flex flex-col items-start max-w-5xl text-left">
           <motion.h1
@@ -127,8 +127,7 @@ export default function Hero() {
             animate="show"
             className="text-lg font-medium text-gray-500 leading-relaxed mb-10 max-w-[480px]"
           >
-            One link. Nigerian customers pay in Naira — you receive USDC.
-            {' '}Gasless for your customers. Your idle USDC earns DeFi yield.
+            One link. Build your shop, accept Naira, receive USDC all in minutes. Gasless for your customers. Your idle USDC earns DeFi yield.
           </motion.p>
 
           {/* CTAs */}

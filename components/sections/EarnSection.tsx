@@ -139,7 +139,7 @@ export default function EarnSection() {
             ref={containerRef}
             className="relative overflow-hidden bg-white py-10 sm:py-24 pb-32 lg:py-40"
         >
-            <div ref={contentRef} className="relative z-20 max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between mb-5 gap-16 lg:gap-8">
+            <div ref={contentRef} className="relative z-20 max-w-7xl mx-auto px-6 sm:px-0 flex flex-col lg:flex-row items-center justify-between mb-5 gap-16 lg:gap-8">
 
                 <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:max-w-xl">
                     <motion.div
