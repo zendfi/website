@@ -5,6 +5,7 @@ import ProofSection from '@/components/sections/ProofSection';
 import OnrampSection from '@/components/sections/OnrampSection';
 import CheckoutSection from '@/components/sections/CheckoutSection';
 import ShopSection from '@/components/sections/ShopSection';
+import TerminalSection from '@/components/sections/TerminalSection';
 import DevSection from '@/components/sections/DevSection';
 import EarnSection from '@/components/sections/EarnSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
@@ -29,6 +30,7 @@ export default function Home() {
       </div>
       <DevSection />
       <ShopSection />
+      <TerminalSection />
       <EarnSection />
       <FeaturesSection />
       <SecuritySection />
