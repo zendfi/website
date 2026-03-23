@@ -7,6 +7,7 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 const links = [
   { label: 'Products', href: '#features' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Disputes', href: '/disputes' },
   { label: 'Docs', href: 'https://docs.zendfi.tech', external: true },
   { label: 'Blog', href: 'https://blog.zendfi.tech', external: true },
 ];

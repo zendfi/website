@@ -22,6 +22,7 @@ const cols = [
   {
     title: 'Company',
     links: [
+      { label: 'Dispute Center', href: '/disputes' },
       { label: 'Blog', href: 'https://blog.zendfi.tech', external: true },
       { label: 'X', href: 'https://x.com/zendfi_', external: true },
     ],
