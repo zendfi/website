@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import DisputePortal from '@/components/disputes/DisputePortal';
@@ -29,7 +30,9 @@ export default function DisputesPage() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <DisputePortal />
+          <Suspense fallback={<div className="rounded-3xl border border-gray-100 bg-white p-5 md:p-8 text-sm text-gray-500">Loading dispute form...</div>}>
+            <DisputePortal />
+          </Suspense>
         </div>
       </section>
 
