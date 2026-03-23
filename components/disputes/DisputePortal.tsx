@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 type DisputeType = 'duplicate' | 'unauthorized' | 'product_not_received' | 'other';
 
@@ -171,6 +172,13 @@ export default function DisputePortal() {
         <div className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">
           Public portal
         </div>
+      </div>
+
+      <div className="mb-6 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2 text-xs text-gray-600">
+        Already have a dispute reference?{' '}
+        <Link href="/disputes/status" className="font-semibold text-primary hover:underline">
+          Check dispute status
+        </Link>
       </div>
 
       {successMessage && (
