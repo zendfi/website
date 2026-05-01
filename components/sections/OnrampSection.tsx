@@ -248,9 +248,12 @@ export default function OnrampSection() {
                         Naira to USDC.
                         <br />
                         <span className="text-accent">
-                            Silky smooth.
+                            The NG lane.
                         </span>
                     </h2>
+                    <p className="mt-5 text-sm text-gray-500 max-w-2xl mx-auto">
+                        This section shows the NG local-transfer route. Outside NG, checkout follows Bridge rails based on country.
+                    </p>
                 </div>
 
                 {/* Stacked Cards Container */}

@@ -16,13 +16,13 @@ function CheckoutMockup() {
   return (
     <div className="relative w-full max-w-[400px]">
       {/* Card */}
-      <div className="relative bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+      <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-100">
         {/* Header bar */}
         <div className="px-5 pt-5 pb-4 border-b border-gray-50 bg-gray-50/30">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <img src="/zendfi_logo_gg.png" alt="ZendFi" className="h-5 w-auto object-contain filter [filter:invert(39%)_sepia(87%)_saturate(5833%)_hue-rotate(253deg)_brightness(97%)_contrast(92%)]" />
-              <span className="text-[10px] font-bold text-gray-400 bg-gray-100 rounded-md px-2 py-0.5 uppercase tracking-wider">Checkout</span>
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Checkout</span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-gray-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -54,7 +54,7 @@ function CheckoutMockup() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors">
+          <div className="flex items-center gap-3 p-3 rounded-xl border border-gray-100">
             <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center">
               <Smartphone size={16} className="text-gray-400" />
             </div>
@@ -64,7 +64,7 @@ function CheckoutMockup() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors">
+          <div className="flex items-center gap-3 p-3 rounded-xl border border-gray-100">
             <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center">
               <Building2 size={16} className="text-emerald-500" />
             </div>
@@ -77,7 +77,7 @@ function CheckoutMockup() {
 
         {/* CTA */}
         <div className="px-5 pb-5">
-          <button className="w-full py-3 bg-primary text-white text-sm font-semibold rounded-xl hover:brightness-110 transition-all">
+          <button className="w-full py-3 bg-primary text-white text-sm font-semibold rounded-xl">
             Pay with Phantom &rarr;
           </button>
           <p className="text-center text-[10px] text-gray-400 mt-3 font-medium flex items-center justify-center gap-1">
@@ -86,17 +86,6 @@ function CheckoutMockup() {
         </div>
       </div>
 
-      {/* Floating USDC badge */}
-      <div className="absolute -right-4 top-1/4 bg-white border border-gray-100 rounded-2xl px-4 py-2.5 shadow-lg hidden sm:block">
-        <div className="text-[9px] text-gray-400 uppercase font-bold tracking-widest mb-0.5">Received</div>
-        <div className="text-sm font-bold text-emerald-500">+16.12 USDC</div>
-      </div>
-
-      {/* Floating wallet tag */}
-      <div className="absolute -left-4 bottom-1/4 bg-white border border-gray-100 rounded-2xl px-4 py-2.5 shadow-lg hidden sm:block">
-        <div className="text-[9px] text-gray-400 uppercase font-bold tracking-widest mb-0.5">Wallet</div>
-        <div className="text-[11px] font-mono font-bold text-primary">7xKm…4fVz</div>
-      </div>
     </div>
   );
 }
@@ -114,9 +103,9 @@ export default function Hero() {
             animate="show"
             className="text-[clamp(40px,6vw,88px)] font-extrabold leading-[1.05] tracking-tight text-gray-900 mb-6"
           >
-            Accept payments
+            Get paid globally
             <br />
-            <span className="text-primary">across borders.</span>
+            <span className="text-primary">from one smart link.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -127,12 +116,32 @@ export default function Hero() {
             animate="show"
             className="text-lg font-medium text-gray-500 leading-relaxed mb-10 max-w-[480px]"
           >
-            One link. Build your shop, accept Naira, receive USDC all in minutes. Gasless for your customers. Your idle USDC earns DeFi yield.
+            ZendFi is a simple way to get paid worldwide. One link can detect where the payer is, then show the right local payment rail for that country.
+          </motion.p>
+
+          <motion.p
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="text-sm font-medium text-gray-400 leading-relaxed mb-10 max-w-[520px]"
+          >
+            Use zdfi.me/username for a main pay link, or zdfi.me/username/request_id when the amount is already set.
+          </motion.p>
+
+          <motion.p
+            custom={4}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="text-sm font-medium text-gray-400 leading-relaxed mb-10 max-w-[520px]"
+          >
+            Example: a merchant creates one link in Nigeria. A payer in the US sees US payment details, a payer in Mexico sees Mexican payment details, and a payer in the UK sees faster payment details, all from the same link.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            custom={3}
+            custom={5}
             variants={fadeUp}
             initial="hidden"
             animate="show"
@@ -142,7 +151,7 @@ export default function Hero() {
               href="https://dashboard.zendfi.tech/setup"
               className="group flex items-center gap-2 px-7 py-3.5 bg-primary hover:brightness-110 text-white font-bold rounded-xl text-[15px] transition-all hover:-translate-y-0.5"
             >
-              Get started
+              Get your own link
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <a
@@ -158,7 +167,7 @@ export default function Hero() {
 
           {/* Social proof strip */}
           <motion.div
-            custom={4}
+            custom={6}
             variants={fadeUp}
             initial="hidden"
             animate="show"

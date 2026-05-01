@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Wallet, Smartphone, Building2 } from 'lucide-react';
-import InteractiveMatrix from '@/components/InteractiveMatrix';
 
 const methods = [
     {
@@ -29,11 +28,11 @@ const methods = [
     {
         id: 'bank',
         icon: <Building2 size={20} className="text-emerald-600" />,
-        label: 'Bank Transfer',
-        tag: 'NGN Onramp',
+        label: 'Local Transfer',
+        tag: 'Geo-routed',
         tagColor: '#34d399',
-        headline: 'Customer pays in Naira. You get USDC.',
-        sub: 'Powered by PAJ Ramp. Works with every major Nigerian bank. Merchant receives USDC instantly on confirmation.',
+        headline: 'Local rails by country. USDC settlement for you.',
+        sub: 'NG routes through Paj. Non-NG routes through Bridge rails like ACH, Faster Payments, SEPA, PIX, SPEI, BRE_B, and Wire.',
         visual: <BankPassVisual />,
     },
 ];
@@ -136,7 +135,7 @@ function BankPassVisual() {
             <div className="flex flex-col gap-4 mb-7">
                 <div>
                     <div className="text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">Bank</div>
-                    <div className="font-semibold text-base text-gray-900">GTBank</div>
+                    <div className="font-semibold text-base text-gray-900">Local rail by country</div>
                 </div>
                 <div>
                     <div className="text-[11px] text-gray-400 uppercase tracking-wider mb-1.5">Amount</div>
@@ -147,7 +146,7 @@ function BankPassVisual() {
                 <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-xs text-gray-400">Expires in 14:52</span>
+                <span className="text-xs text-gray-400">Example: same link, different payer country, different local details</span>
             </div>
         </div>
     );
@@ -163,28 +162,23 @@ export default function CheckoutSection() {
 
     const method = methods[active];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            next();
-        }, 5000); // Auto-rotate every 5 seconds
-
-        return () => clearInterval(interval);
-    }, [active]); // Re-bind interval so manual clicks reset the timer
-
     return (
         <section className="pt-32 px-6 sm:px-0 relative overflow-hidden bg-white">
             <div className="max-w-7xl mx-auto relative">
                 {/* Section label */}
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-100 mb-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 mb-4">
                             <span className="text-[10px] font-bold text-gray-600 tracking-widest uppercase">Checkout</span>
                         </div>
                         <h2 className="text-[clamp(32px,4.5vw,56px)] font-extrabold text-gray-900 leading-tight tracking-tight">
-                            One link.
+                            Two canonical paths.
                             <br />
-                            <span className="text-primary">Three ways to pay.</span>
+                            <span className="text-primary">One geo-aware checkout.</span>
                         </h2>
+                        <p className="mt-4 text-sm text-gray-500 max-w-xl">
+                            General page: zdfi.me/username. Exact request page: zdfi.me/username/request_id.
+                        </p>
                     </div>
 
                     {/* Navigation */}
@@ -230,8 +224,8 @@ export default function CheckoutSection() {
                                 <div className="flex items-center gap-3">
                                     <span className="flex items-center">{method.icon}</span>
                                     <span
-                                        className="text-[10px] font-bold px-3 py-1 rounded-full  uppercase tracking-widest"
-                                        style={{ color: method.tagColor, borderColor: `${method.tagColor}30`, }}
+                                        className="text-[10px] font-bold uppercase tracking-widest"
+                                        style={{ color: method.tagColor }}
                                     >
                                         {method.tag}
                                     </span>
@@ -253,7 +247,7 @@ export default function CheckoutSection() {
                                             onClick={() => setActive(i)}
                                             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${i === active
                                                 ? 'bg-primary text-white'
-                                                : 'bg-gray-50 text-gray-500 hover:text-gray-900 hover:bg-gray-100 border border-gray-100'
+                                                : 'text-gray-500 hover:text-gray-900'
                                                 }`}
                                         >
                                             {/* <span className="text-base leading-none">{m.icon}</span> */}

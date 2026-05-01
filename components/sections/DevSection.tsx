@@ -30,8 +30,8 @@ const payment = await zendfi.createPayment({
 });
 
 console.log(payment.payment_url);
-// → https://checkout.zendfi.tech/pay/abc123
-//   Send this to your customer`,
+// → https://zdfi.me/acme-store/req_01
+//   Canonical request link path (exact amount)`,
   },
   {
     id: 'embedded',
@@ -41,7 +41,8 @@ console.log(payment.payment_url);
 
 // Drop-in widget — no redirect needed
 const checkout = new ZendFiEmbeddedCheckout({
-  linkCode: 'abc123xyz',
+  merchantUserName: 'acme-store',
+  requestLinkId: 'req_01',
   containerId: 'checkout-widget',
   mode: 'live',
   onSuccess: (payment) => {
@@ -77,6 +78,16 @@ export const POST = createNextWebhookHandler({
     },
   },
 });`,
+  },
+  {
+    id: 'paths',
+    label: 'Canonical paths',
+    lang: 'typescript',
+    code: `const generalPayPage = 'https://zdfi.me/acme-store';
+const fixedRequestPage = 'https://zdfi.me/acme-store/req_01';
+
+// generalPayPage => pay-what-you-want flow
+// fixedRequestPage => exact amount flow`,
   },
 ];
 
@@ -126,13 +137,13 @@ function CodeBlock({ code, lang }: { code: string; lang: string }) {
   };
 
   return (
-    <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+    <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-100">
       {/* Mac chrome */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-gray-300" />
           <div className="w-3 h-3 rounded-full bg-gray-300" />
-          <div className="w-3 h-3 rounded-full bg-emerald-400/70" />
+          <div className="w-3 h-3 rounded-full bg-gray-300" />
         </div>
         <div className="flex items-center gap-1.5 text-gray-400">
           <Terminal size={11} />
@@ -179,7 +190,7 @@ export default function DevSection() {
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col gap-6 lg:sticky lg:top-28"
         >
-          <div className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200">
+          <div className="inline-flex w-fit items-center gap-2 px-3 py-1">
             <span className="text-[10px] font-bold text-gray-600 tracking-widest uppercase">Developer SDK</span>
           </div>
 
@@ -191,7 +202,7 @@ export default function DevSection() {
 
           <p className="text-base text-gray-500 leading-relaxed">
             The{' '}
-            <code className="text-accent font-mono text-sm bg-violet-50 px-1.5 py-0.5 rounded-md">@zendfi/sdk</code>
+            <code className="text-accent font-mono text-sm">@zendfi/sdk</code>
             {' '}is a zero-config TypeScript library. Set your API key, call one function, send the URL to your customer.
           </p>
 
@@ -205,7 +216,7 @@ export default function DevSection() {
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                 className="flex items-center gap-4"
               >
-                <div className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-base shrink-0">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0">
                   {f.icon}
                 </div>
                 <div>
@@ -221,7 +232,7 @@ export default function DevSection() {
             href="https://docs.zendfi.tech"
             target="_blank"
             rel="noopener"
-            className="inline-flex w-fit items-center gap-2 mt-4 px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:text-gray-900 hover:border-gray-300 hover:bg-gray-50 transition-all"
+            className="inline-flex w-fit items-center gap-2 mt-4 px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
           >
             Read the full docs →
           </a>
@@ -235,14 +246,14 @@ export default function DevSection() {
           className="flex flex-col gap-3"
         >
           {/* Tabs */}
-          <div className="flex gap-1 p-1 bg-gray-50 rounded-xl border border-gray-100 overflow-x-auto h-scroll-hide">
+          <div className="flex gap-1 p-1 overflow-x-auto h-scroll-hide">
             {tabs.map((tab, i) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(i)}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   i === activeTab
-                    ? 'bg-white text-accent shadow-xs'
+                    ? 'text-accent border-b border-accent'
                     : 'text-gray-400 hover:text-accent'
                 }`}
               >

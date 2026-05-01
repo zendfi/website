@@ -19,7 +19,7 @@ export default function CtaSection() {
             className="flex flex-col items-start text-left relative z-10"
           >
             {/* Badge */}
-            <div className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-2">
+            <div className="inline-flex w-fit items-center gap-2 px-3 py-1 mb-2">
               <span className="text-[10px] font-bold text-gray-600 tracking-widest uppercase">Global Scale</span>
             </div>
 
@@ -31,7 +31,8 @@ export default function CtaSection() {
             </h2>
 
             <p className="text-lg md:text-xl text-gray-500 mb-10 max-w-xl font-medium leading-relaxed">
-              Full sandbox forever free. <strong className="text-gray-900 border-b border-gray-200 pb-0.5">$10 one-time fee to go live.</strong>
+              Sounds cool right? Get your own link and start getting paid globally today.
+              <br className="hidden md:block" /> Full sandbox forever free. <strong className="text-gray-900 border-b border-gray-200 pb-0.5">$10 one-time fee to go live.</strong>
               <br className="hidden md:block" /> No monthly subscriptions. No contracts.
             </p>
 
@@ -39,9 +40,9 @@ export default function CtaSection() {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <a
                 href="https://dashboard.zendfi.tech/setup"
-                className="group flex items-center justify-center gap-2.5 px-8 py-4 text-white font-semibold rounded-2xl text-base w-full sm:w-auto bg-accent transition-colors hover:-translate-y-0.5"
+                className="group flex items-center justify-center gap-2.5 px-8 py-4 text-white font-semibold rounded-2xl text-base w-full sm:w-auto bg-accent transition-colors"
               >
-                Create your account
+                Get your link now
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </a>
 
@@ -49,7 +50,7 @@ export default function CtaSection() {
                 href="https://docs.zendfi.tech"
                 target="_blank"
                 rel="noopener"
-                className="flex items-center justify-center gap-2.5 px-8 py-4 bg-white border border-gray-200 text-gray-600 font-semibold rounded-2xl text-base w-full sm:w-auto hover:bg-gray-50 hover:text-gray-900 hover:border-gray-300 transition-all hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-2.5 px-8 py-4 bg-white border border-gray-200 text-gray-600 font-semibold rounded-2xl text-base w-full sm:w-auto hover:text-gray-900 transition-colors"
               >
                 <Code2 className="w-4 h-4 text-gray-400" />
                 Read the docs
